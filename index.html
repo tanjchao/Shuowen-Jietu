@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#efe7d8">
+<meta name="description" content="說文解圖：古文有戲，戲有古文。走進書院，從小小書僮、狀元書生到文學宗師，探索古文圖像闖關世界。">
+<title>說文解圖｜三境書院・古文冒險</title>
+<style>
+:root{--bg:#f2ebdf;--ink:#302b29;--muted:#71665e;--paper:#fffdf6;--line:#d7c5aa;--gold:#bc8b4c;--shadow:0 12px 34px #44332416}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:radial-gradient(ellipse 55% 24% at 50% 0%,#fff9ec 0%,transparent 100%),linear-gradient(180deg,#e9dfcc 0%,#f6f1e9 42%,#eee6d9 100%);min-height:100vh}
+a{color:inherit}
+button,a{touch-action:manipulation}
+a:focus-visible{outline:3px solid #a06e2c;outline-offset:4px}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+.hero{text-align:center;position:relative;padding:54px 18px 28px}
+.hero:before{content:"";position:absolute;inset:24px 0 auto;max-width:680px;height:150px;margin:auto;background:radial-gradient(ellipse,#e6cda27a,transparent 70%);pointer-events:none}
+.eyebrow{position:relative;color:#875d36;font-weight:850;font-size:13px;letter-spacing:.32em}
+h1{position:relative;font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(46px,7.8vw,78px);letter-spacing:.18em;margin:8px 0 0;font-weight:900;text-shadow:0 3px 0 #fff9e8}
+.tagline{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(17px,2.5vw,23px);letter-spacing:.25em;color:#795339;margin:10px 0 0}
+.hero-sub{font-size:14px;letter-spacing:.07em;color:var(--muted);margin:16px 0 0}
+.ornament{display:flex;align-items:center;gap:13px;justify-content:center;margin:20px auto 0;max-width:520px;color:#b38a52}.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#bda480)}.ornament:after{background:linear-gradient(90deg,#bda480,transparent)}
+.journey{position:relative;background:#fff9edcf;border:1px solid #d9c5a7;border-radius:22px;box-shadow:var(--shadow);padding:21px 24px 24px;margin:5px auto 30px;overflow:hidden}
+.journey:before,.journey:after{content:"❖";position:absolute;color:#c4aa7b;font-size:20px;top:10px}.journey:before{left:13px}.journey:after{right:13px}
+.journey h2{font-family:"Noto Serif TC","PMingLiU",serif;text-align:center;font-size:19px;letter-spacing:.2em;margin:0 0 18px}
+.path{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:13px;align-items:center;max-width:750px;margin:auto}
+.path-step{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.path-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:27px;background:linear-gradient(145deg,#fff,#efe0c5);border:1px solid #d8bf95;box-shadow:0 4px 0 #c9b38d70}
+.path-step strong{font-size:15px}.path-step small{color:var(--muted);font-size:11px}.path-arrow{color:#a9854d;font-size:23px;font-weight:800}
+.journey-note{text-align:center;color:var(--muted);font-size:12px;margin:18px 0 0}
+.chapter{--accent:#4f8068;--tint:#e9f2e8;--dark:#325744;position:relative;margin:0 auto 25px;background:#fffdf7;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.chapter.medium{--accent:#557fa1;--tint:#eaf1f9;--dark:#345e80}
+.chapter.hard{--accent:#8b5c7e;--tint:#f3e9f1;--dark:#653b5b}
+.chapter-head{display:flex;align-items:center;gap:18px;padding:22px 26px 20px;background:linear-gradient(105deg,var(--tint),#fffdf8);border-bottom:1px solid #e4d7c5}
+.seal{width:70px;height:70px;border:2px solid var(--accent);border-radius:20px;display:grid;place-items:center;flex:none;transform:rotate(-5deg);background:#ffffffb8;box-shadow:0 5px 0 #b6a38728}
+.seal span{font-family:"Noto Serif TC","PMingLiU",serif;color:var(--dark);font-weight:900;font-size:25px;transform:rotate(5deg)}
+.chapter-title{flex:1;min-width:0}
+.stage-line{font-size:12px;letter-spacing:.15em;color:var(--dark);font-weight:800}
+.chapter h2{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(23px,3vw,30px);letter-spacing:.08em;margin:4px 0}
+.chapter-desc{font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.7}
+.difficulty{border-radius:999px;padding:9px 20px;background:var(--accent);color:white;font-size:clamp(23px,3vw,30px);font-family:"Noto Serif TC","PMingLiU",serif;font-weight:900;letter-spacing:.06em;white-space:nowrap;align-self:center;box-shadow:0 4px 12px #00000015}
+.chapter-content{padding:22px 25px 24px}
+.stage-instruction{font-size:13px;color:#766a5d;margin:0 0 15px;display:flex;gap:8px;align-items:center}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.game{border:1px solid #dacdbb;border-radius:17px;background:#fff;overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:0 6px 17px #382c2010;text-decoration:none;transition:transform .18s,box-shadow .18s}
+a.game:hover{transform:translateY(-4px);box-shadow:0 13px 25px #382c2022}
+.cover{position:relative;aspect-ratio:2.25/1;overflow:hidden;background:#e9ddcb}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.corner{position:absolute;top:12px;left:12px;border-radius:999px;padding:6px 11px;background:#fff9edee;color:#6b4d32;font-size:12px;font-weight:900;box-shadow:0 2px 8px #0002}
+.game-body{padding:16px 18px 17px;display:flex;flex-direction:column;flex:1;gap:7px}
+.game-title{font-family:"Noto Serif TC","PMingLiU",serif;font-size:22px;font-weight:900;margin:0}
+.game-desc{color:var(--muted);font-size:13px;line-height:1.65;margin:0;flex:1}
+.cta{margin-top:8px;border-radius:999px;background:var(--accent);color:#fff;font-size:13px;font-weight:850;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.game.is-done .cta{background:#5c7d6d}
+.games.secret-open .game.mystery{grid-column:1/-1;max-width:520px;width:100%;justify-self:center}.game.mystery{background:linear-gradient(145deg,#f9f5ed,#f1ebdf);border-style:dashed;box-shadow:none}
+.mystery-cover{aspect-ratio:2.25/1;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,#fffdf7,#eadfcf);position:relative;overflow:hidden}
+.mystery-cover:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #cbb99c;border-radius:50%;box-shadow:0 0 0 16px #d9c7a42e,0 0 0 32px #d9c7a421}
+.mystery-mark{position:relative;width:70px;height:70px;border:2px solid #b99f78;border-radius:50%;display:grid;place-items:center;font-family:serif;font-size:42px;color:#9c7e55;background:#fffaf1}
+.mystery .cta{background:#d8cbb7;color:#756653;justify-content:center}
+.mystery .game-title{color:#76634c}
+.extra{margin-top:17px;padding-top:18px;border-top:1px dashed #cbbba4}
+.extra-label{font-size:13px;color:var(--dark);font-weight:850;letter-spacing:.07em;margin:0 0 12px}
+.extra .game{max-width:530px;border-color:#bda9cc;background:#fbf7ff}
+.extra .cta{background:#735c8c}
+.secret-notice{background:#f1e8f7;border:1px solid #cbb7d9;color:#69487e;border-radius:14px;padding:12px 14px;font-size:15px;font-weight:850;line-height:1.6;margin:0 0 15px}.plus-game{border:2px solid #b899d1;background:#fbf7ff}.plus-game .cta{background:#735c8c}.lock-note{display:flex;align-items:center;gap:8px;margin:15px 0 0;color:#8b7a65;font-size:12px}
+[hidden]{display:none!important}
+footer{text-align:center;color:#877769;font-size:12px;padding:12px 0 36px;line-height:1.9}
+@media(max-width:680px){.wrap{width:min(100% - 22px,1120px)}.hero{padding:36px 10px 24px}.journey{padding:20px 12px}.path{gap:5px}.path-icon{width:45px;height:45px;font-size:21px;border-radius:13px}.path-step strong{font-size:12px}.path-step small{font-size:10px}.path-arrow{font-size:17px}.chapter-head{padding:18px 15px;gap:12px}.seal{width:55px;height:55px;border-radius:16px}.seal span{font-size:20px}.chapter h2{font-size:24px}.difficulty{padding:7px 13px;font-size:24px}.chapter-content{padding:15px}.games{gap:10px}.cover,.mystery-cover{aspect-ratio:1.65/1}.game-body{padding:12px 11px}.game-title{font-size:18px}.game-desc{font-size:12px}.cta{font-size:12px;padding:10px 12px}.corner{font-size:10px;padding:5px 8px;top:8px;left:8px}}
+@media(max-width:380px){.seal{display:none}.chapter h2{font-size:21px}.difficulty{font-size:21px;padding:7px 10px}.chapter-desc{font-size:12px}.game-title{font-size:16px}.game-desc{font-size:11px}.chapter-content{padding:12px}.games{gap:8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* v2.2 本機學籍卡 */
+.academy-card{margin:2px auto 28px;padding:22px 24px;border:1px solid #cbb38a;border-radius:22px;background:linear-gradient(125deg,#fffdf7,#f3e8d3);box-shadow:var(--shadow)}
+.academy-top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.academy-top h2{margin:0;font-size:24px;font-family:"Noto Serif TC","PMingLiU",serif}.academy-top p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.academy-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.academy-controls button,.academy-controls select,.academy-controls input{border:1px solid #cdb99a;border-radius:12px;background:#fffaf2;color:#4f3925;font:inherit;padding:10px;min-height:43px}.academy-controls button{background:#71583d;color:white;cursor:pointer;font-weight:800}.academy-controls input{width:146px;max-width:100%}.academy-controls select{max-width:170px}
+.academy-detail{margin-top:16px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px}.academy-rank{display:flex;align-items:center;gap:13px}.academy-avatar{height:70px;width:70px;display:grid;place-items:center;font-size:36px;border-radius:18px;border:1px solid #dbc9a9;background:#fff5dc}.academy-rank strong{display:block;font-size:23px;line-height:1.4}.academy-rank small{color:#715e4e}.academy-value{font-weight:900;color:#795229;font-size:23px}.academy-progress{background:#ded2bc;border-radius:10px;overflow:hidden;height:11px;margin:10px 0 7px}.academy-progress>div{height:100%;background:linear-gradient(90deg,#6f987c,#d6ab59);width:0;transition:width .2s}.academy-next{font-size:12px;color:#786854}
+.academy-badges{border-top:1px dashed #cbb89c;margin-top:17px;padding-top:13px}.academy-badges strong{font-size:14px}.badges-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.award{border-radius:999px;background:#f6e3b6;border:1px solid #cfac6d;padding:8px 12px;font-size:13px;font-weight:800;color:#6f4e24}.badge-empty{font-size:13px;color:#796e63}
+.academy-help{font-size:12px;color:#776c5b;margin:12px 0 0;line-height:1.6}
+@media(max-width:700px){.academy-card{padding:17px 15px}.academy-top h2{font-size:21px}.academy-detail{grid-template-columns:1fr}.academy-controls{width:100%}.academy-controls input{flex:1;min-width:110px}.academy-rank strong{font-size:20px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="eyebrow">古文圖像理解 × 書院冒險</div>
+  <h1>說文解圖</h1>
+  <p class="tagline">古文有戲，戲有古文</p>
+  <div class="ornament">❖</div>
+  <p class="hero-sub">入書院 · 讀古文 · 闖三境 · 探秘篇</p>
+</header>
+<section class="academy-card" aria-labelledby="academy-title">
+  <div class="academy-top"><div><h2 id="academy-title">📜 我的書院學籍</h2><p>完成古文，累積文采值，蒐集文學徽章。</p></div>
+    <div class="academy-controls"><select id="academySelect" aria-label="切換本機玩家學籍"><option value="">尚未建立學籍</option></select><input id="academyNewName" maxlength="12" aria-label="新玩家姓名" placeholder="建立／切換姓名"><button id="academyAdd" type="button">建立學籍</button></div>
+  </div>
+  <div class="academy-detail"><div class="academy-rank"><div class="academy-avatar" id="academyAvatar">📖</div><div><small id="academyName">尚未建立學籍</small><strong id="academyRank">迷路小書僮</strong><small id="academyCompleted">0 篇已通關</small></div></div>
+    <div><div class="academy-value" id="academyPoints">0 文采值</div><div class="academy-progress" aria-label="下一階進度"><div id="academyBar"></div></div><div class="academy-next" id="academyNext">輸入姓名建立學籍，或開始挑戰文章。</div></div></div>
+  <div class="academy-badges"><strong>🏅 文學徽章</strong><div id="academyBadges" class="badges-list"><span class="badge-empty">完成關卡後，就能獲得篇章徽章。</span></div></div>
+  <p class="academy-help">書院學籍目前只保存在同一瀏覽器；不影響既有 Supabase 排行榜。已通關的舊紀錄不會自動補算文采值，更新後重新通關即可領取。</p>
+</section>
+<section class="chapter easy" aria-labelledby="easy-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>童</span></div>
+    <div class="chapter-title"><div class="stage-line">第一境 · 初入書院</div><h2 id="easy-title">小小書僮</h2><p class="chapter-desc">從故事中認識古文，勇敢踏出第一步。</p></div>
+    <span class="difficulty">簡單</span>
+  </header>
+  <div class="chapter-content">
+    <p class="stage-instruction">✦ 初始兩關 · 目前開放第一關</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/Mulan-Poem/index.html" id="game-mulan">
+        <div class="cover"><img src="https://tanjchao.github.io/Mulan-Poem/image/mulan_01.webp" alt="木蘭詩插畫" loading="eager"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">木蘭詩</h3><p class="game-desc">代父從軍，走進木蘭的英雄旅程。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <article class="game mystery" aria-label="第二關神秘篇章，即將開放">
+        <div class="mystery-cover"><span class="mystery-mark" aria-hidden="true">？</span><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">神秘篇章</h3><p class="game-desc">書卷尚未揭曉，敬請期待新的冒險。</p><span class="cta">🔒 即將開放</span></div>
+      </article>
+    </div>
+    <p class="lock-note">🔐 完成初始兩關後，後續篇章才會現身。</p>
+    <div class="extra" id="easy-extras" hidden><p class="extra-label">✦ 兩關通過！後續篇章已解鎖，敬請期待新作品。</p></div>
+  </div>
+</section>
+<section class="chapter medium" aria-labelledby="medium-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>榜</span></div>
+    <div class="chapter-title"><div class="stage-line">第二境 · 進京趕考</div><h2 id="medium-title">狀元書生</h2><p class="chapter-desc">穿越文意迷宮，揭開文字背後的故事。</p></div>
+    <span class="difficulty">普通</span>
+  </header>
+  <div class="chapter-content">
+    <p class="secret-notice" id="taohuayuan-unlocked-note" hidden>✨ 桃源秘境已解鎖！《桃花源記 PLUS》就在第一關旁邊，快來探索！</p>
+    <p class="stage-instruction">✦ 初始兩關 · 目前開放第一關</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/Taohuayuan/" id="game-taohuayuan">
+        <div class="cover"><img src="https://tanjchao.github.io/Taohuayuan/images/tao_01.webp" alt="桃花源記插畫" loading="eager"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">桃花源記</h3><p class="game-desc">隨武陵漁人尋訪桃源，探索世外奇境。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="game plus-game" id="taohuayuan-secret" hidden href="https://tanjchao.github.io/Taohuayuan-Alien/" id="game-plus">
+        <div class="cover"><img src="taohuayuan-plus-cover.webp" alt="桃花源記 PLUS 的神秘山洞封面" loading="lazy"><span class="corner">隱藏篇章</span></div>
+        <div class="game-body"><h3 class="game-title">桃花源記 PLUS</h3><p class="game-desc">熟悉的桃源，似乎還藏著另一段祕密……</p><span class="cta"><span class="status">探索秘境</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <article class="game mystery" aria-label="第二關神秘篇章，即將開放">
+        <div class="mystery-cover"><span class="mystery-mark" aria-hidden="true">？</span><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">神秘篇章</h3><p class="game-desc">一卷未開的古文，等待下一位挑戰者。</p><span class="cta">🔒 即將開放</span></div>
+      </article>
+    </div>
+    <p class="lock-note">🔐 完成初始兩關後，後續篇章才會現身。隱藏篇章另有解鎖條件。</p>
+    <div class="extra" id="medium-extras" hidden><p class="extra-label">✦ 兩關通過！後續篇章已解鎖，敬請期待新作品。</p></div>
+  </div>
+</section>
+<section class="chapter hard" aria-labelledby="hard-title">
+  <header class="chapter-head">
+    <div class="seal" aria-hidden="true"><span>宗</span></div>
+    <div class="chapter-title"><div class="stage-line">第三境 · 問鼎文壇</div><h2 id="hard-title">文學宗師</h2><p class="chapter-desc">識人物風骨，解文脈深意，磨練宗師眼界。</p></div>
+    <span class="difficulty">困難</span>
+  </header>
+  <div class="chapter-content">
+    <p class="stage-instruction">✦ 初始兩關 · 目前開放第一關</p>
+    <div class="games">
+      <a class="game" href="https://tanjchao.github.io/guwen-game/index.html" id="game-zuozhongyi">
+        <div class="cover"><img src="https://tanjchao.github.io/guwen-game/images/scene1.webp" alt="左忠毅公軼事插畫" loading="lazy"><span class="corner">第一關</span></div>
+        <div class="game-body"><h3 class="game-title">左忠毅公軼事</h3><p class="game-desc">風雪訪賢，領略忠毅風骨與師生情義。</p><span class="cta"><span class="status">開始闖關</span><span aria-hidden="true">→</span></span></div>
+      </a>
+      <article class="game mystery" aria-label="第二關神秘篇章，即將開放">
+        <div class="mystery-cover"><span class="mystery-mark" aria-hidden="true">？</span><span class="corner">第二關</span></div>
+        <div class="game-body"><h3 class="game-title">神秘篇章</h3><p class="game-desc">真正的宗師試煉，仍在書院深處。</p><span class="cta">🔒 即將開放</span></div>
+      </article>
+    </div>
+    <p class="lock-note">🔐 完成初始兩關後，後續篇章才會現身。</p>
+    <div class="extra" id="hard-extras" hidden><p class="extra-label">✦ 兩關通過！後續篇章已解鎖，敬請期待新作品。</p></div>
+  </div>
+</section>
+<footer>說文解圖 · 古文有戲，戲有古文<br>書院冒險入口 · 通關紀錄目前保存在此瀏覽器</footer>
+</main>
+<script>
+/* 說文解圖：本機學籍 v1｜跨 github.io 同來源 localStorage，與雲端排行榜分離 */
+(function(){
+ 'use strict';
+ const KEY='shuowen_academy_v1';
+ const GAMES={mulan:{title:'木蘭詩',tier:'easy',base:100,badge:'代父從軍'},taohuayuan:{title:'桃花源記',tier:'normal',base:150,badge:'桃源訪客'},taohuayuan_plus:{title:'桃花源記 PLUS',tier:'special',base:100,badge:'秘境探索者'},zuozhongyi:{title:'左忠毅公軼事',tier:'hard',base:200,badge:'忠義傳人'}};
+ const RANKS=[{name:'迷路小書僮',min:0},{name:'聰明小書僮',min:100},{name:'進京趕考書生',min:300},{name:'狀元及第進士',min:700},{name:'名滿京城大師',min:1400},{name:'一代宗師文冠天下',min:2500}];
+ const normalize=s=>String(s||'').trim().slice(0,12);
+ function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');if(d&&d.version===1&&d.profiles&&typeof d.profiles==='object')return d}catch(e){}return {version:1,active:'',profiles:{}}}
+ function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){return false}}
+ function getProfile(name,create=false){const d=load();let n=normalize(name||d.active);if(!n)return null;if(create&&!d.profiles[n]){d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};save(d)}return d.profiles[n]||null}
+ function activate(name){const n=normalize(name);if(!n)return null;const d=load();if(!d.profiles[n])d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};d.active=n;save(d);return d.profiles[n]}
+ function list(){const d=load();return Object.values(d.profiles).sort((a,b)=>(b.updated||b.created||0)-(a.updated||a.created||0))}
+ function total(p){return Object.values(p?.games||{}).reduce((acc,g)=>acc+Math.max(0,Number(g.points||0)),0)}
+ function completed(p){return Object.keys(p?.games||{}).filter(id=>(p.games[id]?.completed||0)>0)}
+ function rankOf(p){const xp=total(p),g=completed(p);let result=0;if(xp>=100&&g.length>=1)result=1;if(xp>=300&&g.some(id=>GAMES[id]?.tier==='normal'))result=Math.max(result,2);if(xp>=700&&g.length>=3)result=Math.max(result,3);if(xp>=1400&&g.some(id=>GAMES[id]?.tier==='hard'))result=Math.max(result,4);if(xp>=2500&&g.length>=6&&g.some(id=>GAMES[id]?.tier==='hard'))result=5;return result}
+ function maxScore(questionCount,chapterSize){const size=chapterSize||((questionCount===28)?7:5);const chapterCount=Math.ceil(questionCount/size);let combo=0;for(let chapter=0;chapter<chapterCount;chapter++){const q=Math.min(size,questionCount-chapter*size);for(let c=1;c<=q;c++)combo+=(c>=5?50:c===4?30:c===3?20:c===2?10:0)}return questionCount*150+questionCount*50+combo}
+ function finish(name,id,info){const d=load(),n=normalize(name);if(!n||!GAMES[id])return null;if(!d.profiles[n])d.profiles[n]={name:n,created:Date.now(),games:{},badges:{}};const p=d.profiles[n],g=GAMES[id],before=rankOf(p);const prev=p.games[id]||{};
+  const max=maxScore(info.questionCount,info.chapterSize),raw=Number(info.score)||0,percent=max>0?Math.max(0,Math.min(100,Math.round(raw/max*10000)/100)):0;
+  const tier=Math.max(0,Math.min(100,Math.floor((percent+1e-8)/10)*10));const extra=tier>=50?tier:0;
+  const multiplier=g.tier==='hard'?1.2:1;const awarded=Math.round((g.base+extra)*multiplier);const oldPoints=Math.max(0,Number(prev.points||0));const delta=Math.max(0,awarded-oldPoints);
+  const badges=p.badges||(p.badges={}),newBadges=[];function grant(b){if(!badges[b]){badges[b]={at:Date.now(),game:id};newBadges.push(b)}}
+  grant(g.badge);
+  if(info.noWrong)grant('一氣呵成！');
+  if(info.noHint)grant('不假思索');
+  if(info.sortPerfect)grant('妙手排章');
+  p.games[id]={completed:(Number(prev.completed)||0)+1,points:Math.max(oldPoints,awarded),bestPercent:Math.max(Number(prev.bestPercent)||0,percent),bestScore:Math.max(Number(prev.bestScore)||0,raw),lastAt:Date.now()};p.updated=Date.now();d.active=n;const persisted=save(d),after=rankOf(p);
+  return {name:n,game:id,percent,max,base:Math.round(g.base*multiplier),bonus:Math.round(extra*multiplier),delta,total:total(p),tier:RANKS[after].name,rankUp:after>before,newBadges,persisted,rank:after};
+ }
+ window.ShuowenAcademy={KEY,GAMES,RANKS,load,activate,getProfile,list,total,completed,rankOf,maxScore,finish};
+})();
+
+/* v2.0 通關紀錄：各 GitHub Pages 專案共用同一 github.io 網域的 localStorage。 */
+(function(){
+  'use strict';
+  const KEY='shuowen_progress_v1';
+  try{localStorage.setItem('shuowen_portal_url_v1',location.href.split('#')[0]);}catch(e){}
+  let completed={};
+  try{const data=JSON.parse(localStorage.getItem(KEY)||'{}');if(data&&typeof data.completed==='object'&&data.completed)completed=data.completed;}catch(e){}
+  const done=(id)=>Boolean(completed[id]);
+  const games=[['mulan','game-mulan'],['taohuayuan','game-taohuayuan'],['zuozhongyi','game-zuozhongyi'],['taohuayuan_plus','game-plus']];
+  for(const [id,elementId] of games){const el=document.getElementById(elementId);if(el&&done(id)){el.classList.add('is-done');const status=el.querySelector('.status');if(status)status.textContent='✓ 已通關 · 再次挑戰';}}
+  const secretOpen=done('taohuayuan');
+  document.getElementById('taohuayuan-secret').hidden=!secretOpen;
+  document.getElementById('taohuayuan-unlocked-note').hidden=!secretOpen;
+  if(secretOpen)document.getElementById('taohuayuan-secret').closest('.games').classList.add('secret-open');
+  for(const [area,first,second] of [['easy','mulan','easy_02'],['medium','taohuayuan','medium_02'],['hard','zuozhongyi','hard_02']]){
+    document.getElementById(area+'-extras').hidden=!(done(first)&&done(second));
+  }
+})();
+
+(function(){
+ const A=window.ShuowenAcademy,$=id=>document.getElementById(id);
+ const select=$('academySelect'),input=$('academyNewName');
+ function render(){const d=A.load(),profiles=A.list();select.replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='選擇學籍';select.appendChild(placeholder);
+  for(const p of profiles){const opt=document.createElement('option');opt.value=p.name;opt.textContent=p.name;select.appendChild(opt)}
+  const active=d.profiles[d.active]?d.active:'';select.value=active;const p=d.profiles[active],xp=A.total(p),r=p?A.rankOf(p):0,rank=A.RANKS[r],next=A.RANKS[r+1];
+  $('academyName').textContent=p?'玩家：'+p.name:'尚未建立學籍';$('academyRank').textContent=rank.name;$('academyCompleted').textContent=A.completed(p).length+' 篇已通關';$('academyPoints').textContent=xp+' 文采值';$('academyAvatar').textContent=['📖','🪶','📜','🏮','🏯','👑'][r];
+  const floor=rank.min,ceil=next?next.min:floor;$('academyBar').style.width=next?Math.max(0,Math.min(100,(xp-floor)/(ceil-floor)*100))+'%':'100%';
+  $('academyNext').textContent=!p?'輸入姓名建立學籍，或直接進入遊戲':next?'下一階：'+next.name+'（需達 '+next.min+' 文采值及指定通關條件）':'已達最高稱號！';
+  const badges=$('academyBadges');badges.replaceChildren();const earned=Object.keys(p?.badges||{});if(!earned.length){const span=document.createElement('span');span.className='badge-empty';span.textContent='尚未獲得徽章，完成一篇文章即可取得。';badges.appendChild(span)}else{for(const b of earned){const el=document.createElement('span');el.className='award';el.textContent='🏅 '+b;badges.appendChild(el)}}
+ }
+ $('academyAdd').addEventListener('click',()=>{const name=input.value.trim();if(!name){input.focus();return}A.activate(name);input.value='';render()});input.addEventListener('keydown',e=>{if(e.key==='Enter')$('academyAdd').click()});select.addEventListener('change',()=>{if(select.value)A.activate(select.value);render()});
+ window.addEventListener('pageshow',render);window.addEventListener('storage',render);render();
+})();
+</script>
+</body>
+</html>
