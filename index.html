@@ -383,7 +383,31 @@ const games=[['mulan','game-mulan'],['room','game-room'],['taohuayuan','game-tao
 (function(){
  const A=window.ShuowenAcademy,$=id=>document.getElementById(id);
  const C=window.ShuowenCloud;
- function render(){const d=A.load();const s=C.session();const active=s?.name||'';$('cloudStatus').textContent=s?'已登入：'+s.name+'（'+s.code+'）':'尚未登入雲端學籍';$('cloudShowCreate').hidden=!!s;$('cloudShowLogin').hidden=!!s;$('cloudLogout').hidden=!s;const p=d.profiles[active],xp=A.total(p),r=p?A.rankOf(p):0,rank=A.RANKS[r],next=A.RANKS[r+1];
+  // v2.6：依照目前登入學籍的已通關遊戲，自動修復遺漏的篇章成就。
+  // 僅以該學籍 games[id].completed 為依據，避免其他玩家的全域紀錄誤發徽章。
+  let badgeRepairSyncing=false;
+  function repairCompletionBadges(d,active){
+    if(!active)return false;
+    const p=d.profiles?.[active];
+    if(!p||!p.games)return false;
+    const badges=p.badges||(p.badges={});
+    let changed=false;
+    for(const [id,g] of Object.entries(A.GAMES)){
+      if(Number(p.games[id]?.completed||0)>0 && g.badge && !Object.prototype.hasOwnProperty.call(badges,g.badge)){
+        badges[g.badge]={at:Date.now(),game:id,recovered:true};
+        changed=true;
+      }
+    }
+    if(changed){
+      localStorage.setItem(A.KEY,JSON.stringify(d));
+      if(C.session()&&!badgeRepairSyncing){
+        badgeRepairSyncing=true;
+        C.push().catch(e=>console.warn('補發成就雲端同步失敗',e)).finally(()=>{badgeRepairSyncing=false});
+      }
+    }
+    return changed;
+  }
+ function render(){const d=A.load();const s=C.session();const active=s?.name||'';repairCompletionBadges(d,active);$('cloudStatus').textContent=s?'已登入：'+s.name+'（'+s.code+'）':'尚未登入雲端學籍';$('cloudShowCreate').hidden=!!s;$('cloudShowLogin').hidden=!!s;$('cloudLogout').hidden=!s;const p=d.profiles[active],xp=A.total(p),r=p?A.rankOf(p):0,rank=A.RANKS[r],next=A.RANKS[r+1];
   $('academyName').textContent=p?'玩家：'+p.name:'尚未建立學籍';$('academyRank').textContent=rank.name;$('academyCompleted').textContent=A.completed(p).length+' 篇已通關';$('academyPoints').textContent=xp+' 文采值';$('academyAvatar').textContent=['📖','🪶','📜','🏮','🏯','👑'][r];
   const floor=rank.min,ceil=next?next.min:floor;$('academyBar').style.width=next?Math.max(0,Math.min(100,(xp-floor)/(ceil-floor)*100))+'%':'100%';
   $('academyNext').textContent=!p?'輸入姓名建立學籍，或直接進入遊戲':next?'下一階：'+next.name+'（需達 '+next.min+' 文采值及指定通關條件）':'已達最高稱號！';
